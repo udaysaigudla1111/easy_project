@@ -25,8 +25,10 @@ export const middleware = (req:any,res:Response,next:NextFunction)=>{
             
         }
     }
-    return res.status(400).json({
-        message:"Token not found"
-    })
+    else{
+        return res.status(400).json({
+            message: "Token not found",
+        });
+    }
 
 }
