@@ -133,6 +133,28 @@ app.post("/create-room", middleware_1.middleware, (req, res) => __awaiter(void 0
         return;
     }
 }));
+app.get("/chats/:roomId", middleware_1.middleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const roomId = Number(req.params.roomId);
+    const messages = yield prisma_1.default.chatHistory.findMany({
+        where: {
+            roomId: roomId
+        },
+        include: {
+            user: {
+                select: {
+                    name: true
+                }
+            }
+        },
+        orderBy: {
+            id: 'desc'
+        },
+        take: 50
+    });
+    res.status(200).json({
+        messages
+    });
+}));
 app.listen(3000, () => {
     console.log(`http-server is listening on port ${3000}`);
 });
