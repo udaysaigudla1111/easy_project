@@ -1,8 +1,9 @@
 import React from 'react'
+import AuthPage from '../components/AuthPage'
 
 const SignIn = () => {
   return (
-    <div>SignIn</div>
+    <AuthPage SignIn={true} />
   )
 }
 

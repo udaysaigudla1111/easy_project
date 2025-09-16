@@ -8,8 +8,10 @@ import {
   Box,
 } from '@mui/material';
 import { Brush as BrushIcon } from '@mui/icons-material';
+import {  useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
+    const navigate = useNavigate()
   return (
     <AppBar 
       position="sticky" 
@@ -65,6 +67,9 @@ const Header: React.FC = () => {
                 borderColor: 'primary.main',
                 color: 'primary.main'
               }}
+              onClick={()=>{
+                navigate("/signIn")
+              }}
             >
               Sign In
             </Button>
@@ -74,6 +79,9 @@ const Header: React.FC = () => {
                 ml: 1,
                 borderColor: 'primary.main',
                 color: 'primary.main'
+              }}
+              onClick={()=>{
+                navigate("/signUp")
               }}
             >
               Sign Up
